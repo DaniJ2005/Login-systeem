@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,8 +19,22 @@
 </head>
 <body>
   <nav class="navbar-container">
-    <a href="login.php">Login</a>
-    <a href="register.php">Register</a>
+    <a href="sign-in.php">Login</a>
+    <a href="sign-up.php">Register</a>
   </nav>
+
+  <?php 
+  if (isset($_SESSION["useruid"])) {
+
+      echo "<div>Welcome " . "<p>" . $_SESSION["useruid"] . "</p></div>";
+
+  }
+  else {
+      echo "<div>HomePage</div>";
+  }
+      ?>
+
+
+
 </body>
 </html>

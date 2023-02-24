@@ -19,22 +19,38 @@
   <section class="login-section">
     <div class="login-container">
       <h2 class="title">LOGIN</h2>
-      <form class="form" action="">
-        <label class="label" for="email">Email</label>
-        <input class="input" type="email" name="" id="email">
+
+      <form class="form" action="includes/login.inc.php" method="post" id="login">
+
+
+        <label class="label" for="uid">Email</label>
+        <input type="text" name="uid" class="input" placeholder="Username/Email">
 
         <label class="label" for="password">Password</label>
-        <input class="input" type="password" name="" id="password">
+        <input class="input" type="password" name="pwd" id="password" placeholder="Enter Password">
 
         <div class="checkbox-container">
           <input type="checkbox" name="" id="">
           <p>Remember me?</p>
         </div>
 
-        <button class="submit-btn" type="submit">LOGIN</button>
+        <button class="submit-btn" type="submit" name="submit">LOGIN</button>
       </form>
 
-      <p class="text">Need an account? <a href="register.php">SIGN UP</a></p>
+      <?php
+        if (isset($_GET["error"])) {
+          if ($_GET["error"] == "emptyinput") {
+              echo "<p class='feedbackmsg'>Fill in all fields!</p>";
+          }
+          else if ($_GET["error"] == "wronglogin") {
+              echo "<p class='feedbackmsg'>Incorrect Password</p>";
+          }
+            
+        }
+
+      ?>
+
+      <p class="text">Need an account? <a href="sign-up.php">SIGN UP</a></p>
     </div>
   </section>
 </body>

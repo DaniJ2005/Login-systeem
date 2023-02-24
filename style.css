@@ -80,8 +80,15 @@ body {
   border-radius: 8px;
 }
 
+.submit-btn:hover {
+  color: #fff;
+  background-color: #bd4368;
+}
+
 
 .navbar-container {
   display: flex;
   flex-direction: column;
 }
+
+
